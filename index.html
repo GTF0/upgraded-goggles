@@ -5,57 +5,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>/our/servers/</title>
     <style>
+        :root {
+            --bg-color: #eef2ff;
+            --container-bg: #d6daf0;
+            --post-bg: #f0e0d6;
+            --text-color: #000000;
+            --link-color: #34345c;
+            --header-color: #af0a0f;
+            --name-color: #117743;
+            --border-color: #b7c5d9;
+            --highlight-color: #d6bad0;
+        }
+
         body {
             font-family: arial, helvetica, sans-serif;
-            background-color: #eef2ff;
-            color: #000000;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 10px;
             font-size: 13px;
             line-height: 1.2;
         }
+
         .container {
             max-width: 750px;
             margin: 0 auto;
-            background-color: #d6daf0;
-            border: 1px solid #b7c5d9;
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
             padding: 5px;
         }
+
         h1, h2 {
-            color: #af0a0f;
+            color: var(--header-color);
             font-size: 20px;
             font-weight: bold;
             margin: 5px 0;
         }
+
         h2 {
             font-size: 16px;
         }
+
         .post {
-            background-color: #f0e0d6;
+            background-color: var(--post-bg);
             border: 1px solid #d9bfb7;
             margin: 5px 0;
             padding: 5px;
+            transition: box-shadow 0.3s ease;
         }
+
+        .post:hover {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
         .post-header {
-            color: #117743;
+            color: var(--name-color);
             font-weight: bold;
         }
+
         .post-number {
             color: #800000;
             font-size: 12px;
         }
+
+        .post-id {
+            font-size: 11px;
+            color: #666;
+        }
+
         a {
-            color: #34345c;
+            color: var(--link-color);
             text-decoration: underline;
         }
+
         .footer {
             font-size: 11px;
             text-align: center;
             margin-top: 10px;
             color: #666666;
         }
+
         #current-time {
             font-weight: bold;
+        }
+
+        .quote {
+            color: #789922;
+        }
+
+        .reply-button {
+            background-color: #f0e0d6;
+            border: 1px solid #d9bfb7;
+            padding: 2px 5px;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: var(--container-bg);
+            border-left: 1px solid var(--border-color);
+            transition: right 0.3s ease;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .sidebar.open {
+            right: 0;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .theme-switch {
+            margin-top: 10px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            padding: 5px 10px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .thumbnail {
+            max-width: 150px;
+            max-height: 150px;
+            cursor: pointer;
+        }
+
+        .spoiler {
+            background-color: #000;
+            color: #000;
+        }
+
+        .spoiler:hover {
+            color: #fff;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-color);
+        }
+
+        .file-info {
+            font-size: 11px;
+            margin-top: 5px;
+            color: #666;
+        }
+
+        .catalog-view .post {
+            display: inline-block;
+            width: 150px;
+            height: 200px;
+            overflow: hidden;
+            margin: 5px;
+            vertical-align: top;
+        }
+
+        .catalog-view .post-content {
+            height: 100px;
+            overflow: hidden;
+        }
+
+        /* Dark theme */
+        body.dark-theme {
+            --bg-color: #1e1e1e;
+            --container-bg: #2d2d2d;
+            --post-bg: #3a3a3a;
+            --text-color: #ffffff;
+            --link-color: #8080ff;
+            --header-color: #ff6b6b;
+            --name-color: #66c2a5;
+            --border-color: #4a4a4a;
+            --highlight-color: #4a3f4a;
         }
     </style>
 </head>
@@ -64,15 +214,18 @@
         <h1>/our/servers/</h1>
         
         <div class="post">
-            <div class="post-header">Anonymous <span class="post-number">No.1</span></div>
-            <p>>Main Server<br>
+            <div class="post-header">Anonymous <span class="post-number">No.1</span> <span class="post-id">ID: f7xH9p</span></div>
+            <p><span class="quote">>Main Server</span><br>
             <a href="https://discord.gg/volcel">discord.gg/volcel</a><br>
             Welcome to our primary hangout. Don't be a newfag.</p>
+            <div class="file-info">File: server.jpg (50 KB, 300x200)</div>
+            <img src="https://via.placeholder.com/300x200" alt="Server Image" class="thumbnail">
+            <button class="reply-button">Reply</button>
         </div>
 
         <div class="post">
-            <div class="post-header">Anonymous <span class="post-number">No.2</span></div>
-            <p>>Backup Servers<br>
+            <div class="post-header">Anonymous <span class="post-number">No.2</span> <span class="post-id">ID: 9pK3mN</span></div>
+            <p><span class="quote">>Backup Servers</span><br>
             1. <a href="https://discord.gg/EgYx6HkEuM">discord.gg/EgYx6HkEuM</a><br>
             2. <a href="https://discord.gg/BKYH7hUqS9">discord.gg/BKYH7hUqS9</a><br>
             3. <a href="https://discord.gg/8VWjJjAWxA">discord.gg/8VWjJjAWxA</a><br>
@@ -81,20 +234,40 @@
             6. <a href="https://discord.gg/92QYk4qbZT">discord.gg/92QYk4qbZT</a><br>
             7. <a href="https://discord.gg/F2s4wRQk3P">discord.gg/F2s4wRQk3P</a><br>
             Use these if main is kill.</p>
+            <button class="reply-button">Reply</button>
         </div>
 
         <div class="post">
-            <div class="post-header">Anonymous <span class="post-number">No.3</span></div>
-            <p>>Rules<br>
+            <div class="post-header">Anonymous <span class="post-number">No.3</span> <span class="post-id">ID: 2xR5tL</span></div>
+            <p><span class="quote">>Rules</span><br>
             1. Follow Discord TOS<br>
-            2. Don't be a [redacted]<br>
+            2. Don't be a <span class="spoiler">[redacted]</span><br>
             3. Mods = fags</p>
+            <button class="reply-button">Reply</button>
         </div>
 
         <div class="footer">
             Created by Nyelith | Server time: <span id="current-time"></span>
         </div>
     </div>
+
+    <div class="sidebar">
+        <h2>Information</h2>
+        <p>Welcome to /our/servers/</p>
+        <p>Total posts: 3</p>
+        <p>Active users: 42</p>
+        <div class="theme-switch">
+            <label for="theme-toggle">Dark theme</label>
+            <input type="checkbox" id="theme-toggle">
+        </div>
+        <div class="view-switch">
+            <label for="view-toggle">Catalog view</label>
+            <input type="checkbox" id="view-toggle">
+        </div>
+    </div>
+
+    <button class="sidebar-toggle">☰</button>
+    <button class="back-to-top">▲</button>
 
     <script>
         function updateTime() {
@@ -103,7 +276,79 @@
         }
         updateTime();
         setInterval(updateTime, 1000);
+
+        // Sidebar toggle
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Theme switcher
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark-theme');
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Reply button (just an alert for demonstration)
+        const replyButtons = document.querySelectorAll('.reply-button');
+        replyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Reply function not implemented in this demo.');
+            });
+        });
+
+        // Expandable images
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                thumbnail.classList.toggle('expanded');
+                if (thumbnail.classList.contains('expanded')) {
+                    thumbnail.style.maxWidth = '100%';
+                    thumbnail.style.maxHeight = 'none';
+                } else {
+                    thumbnail.style.maxWidth = '150px';
+                    thumbnail.style.maxHeight = '150px';
+                }
+            });
+        });
+
+        // Post highlighting
+        const posts = document.querySelectorAll('.post');
+        posts.forEach(post => {
+            post.addEventListener('click', () => {
+                posts.forEach(p => p.style.backgroundColor = '');
+                post.style.backgroundColor = 'var(--highlight-color)';
+            });
+        });
+
+        // Blinking cursor effect on page title
+        let titleText = document.title;
+        let titleCursor = true;
+        setInterval(() => {
+            document.title = titleText + (titleCursor ? '▓' : '▒');
+            titleCursor = !titleCursor;
+        }, 500);
+
+        // Catalog view toggle
+        const viewToggle = document.getElementById('view-toggle');
+        const container = document.querySelector('.container');
+        viewToggle.addEventListener('change', () => {
+            container.classList.toggle('catalog-view');
+        });
     </script>
 </body>
 </html>
-
