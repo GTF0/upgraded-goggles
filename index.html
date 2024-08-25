@@ -2,10 +2,108 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://discord.gg/volcel">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/our/servers/</title>
+    <style>
+        body {
+            font-family: arial, helvetica, sans-serif;
+            background-color: #eef2ff;
+            color: #000000;
+            margin: 0;
+            padding: 10px;
+            font-size: 13px;
+            line-height: 1.2;
+        }
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: #d6daf0;
+            border: 1px solid #b7c5d9;
+            padding: 5px;
+        }
+        h1, h2 {
+            color: #af0a0f;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        h2 {
+            font-size: 16px;
+        }
+        .post {
+            background-color: #f0e0d6;
+            border: 1px solid #d9bfb7;
+            margin: 5px 0;
+            padding: 5px;
+        }
+        .post-header {
+            color: #117743;
+            font-weight: bold;
+        }
+        .post-number {
+            color: #800000;
+            font-size: 12px;
+        }
+        a {
+            color: #34345c;
+            text-decoration: underline;
+        }
+        .footer {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 10px;
+            color: #666666;
+        }
+        #current-time {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <p>If you are not redirected automatically, follow this <a href="https://discord.gg/volcel">link</a>.</p>
+    <div class="container">
+        <h1>/our/servers/</h1>
+        
+        <div class="post">
+            <div class="post-header">Anonymous <span class="post-number">No.1</span></div>
+            <p>>Main Server<br>
+            <a href="https://discord.gg/volcel">discord.gg/volcel</a><br>
+            Welcome to our primary hangout. Don't be a newfag.</p>
+        </div>
+
+        <div class="post">
+            <div class="post-header">Anonymous <span class="post-number">No.2</span></div>
+            <p>>Backup Servers<br>
+            1. <a href="https://discord.gg/EgYx6HkEuM">discord.gg/EgYx6HkEuM</a><br>
+            2. <a href="https://discord.gg/BKYH7hUqS9">discord.gg/BKYH7hUqS9</a><br>
+            3. <a href="https://discord.gg/8VWjJjAWxA">discord.gg/8VWjJjAWxA</a><br>
+            4. <a href="https://discord.gg/m5KgAEXJHQ">discord.gg/m5KgAEXJHQ</a><br>
+            5. <a href="https://discord.gg/MAuRPmgwvv">discord.gg/MAuRPmgwvv</a><br>
+            6. <a href="https://discord.gg/92QYk4qbZT">discord.gg/92QYk4qbZT</a><br>
+            7. <a href="https://discord.gg/F2s4wRQk3P">discord.gg/F2s4wRQk3P</a><br>
+            Use these if main is kill.</p>
+        </div>
+
+        <div class="post">
+            <div class="post-header">Anonymous <span class="post-number">No.3</span></div>
+            <p>>Rules<br>
+            1. Follow Discord TOS<br>
+            2. Don't be a [redacted]<br>
+            3. Mods = fags</p>
+        </div>
+
+        <div class="footer">
+            Created by Nyelith | Server time: <span id="current-time"></span>
+        </div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('current-time').textContent = now.toLocaleString();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
 </body>
 </html>
+
